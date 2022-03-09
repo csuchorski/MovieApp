@@ -133,6 +133,7 @@ namespace MoviesPageMVC.Controllers
             if (id == null) return NotFound();
 
             var movie = await _context.Movie.FirstOrDefaultAsync(m => m.Id == id);
+            if (movie == null) return NotFound();
 
             return View(movie);
         }
